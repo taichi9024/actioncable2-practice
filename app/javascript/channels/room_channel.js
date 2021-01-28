@@ -14,9 +14,12 @@ const chatChannel = consumer.subscriptions.create("RoomChannel", {
     // Called when there's incoming data on the websocket for this channel
   },
 
-  speak: function(data) {
-    Message.create content: data['message']
-  });
+  speak: function(message) {
+    return this.perform('speak', {
+      message: message
+    });
+  }
+});
 
     $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
       if (event.keyCode === 13) {
