@@ -1,0 +1,7 @@
+<h1>Chat App</h1>
+<div id="messages">
+  <%= render @messages %>
+</div>
+
+<%= label_tag :content, "say somethig" %>
+<%= text_field_tag :content, nil, data:{behavior: "room_speaker"} %>
